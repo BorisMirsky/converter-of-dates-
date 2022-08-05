@@ -76,7 +76,7 @@ class Fr_date():
          else:
             fr_day = str(fr_ind)[-1]
          fr_day = int(fr_day)
-         return('%d год Республики, %s месяц, %s декада, %s день' %
+         return('Сегодня по французскому революционному календарю: \n %d год Республики, %s месяц, %s декада, %s день' %
                 (fr_year, dict_month[fr_month], dict_decade[fr_dec], dict_day[fr_day]))
 
 
@@ -89,7 +89,7 @@ aujourdhui_arg = datetime.datetime.today().strftime('%Y-%m-%d').split('-')
 # форматирование 'сегодня'
 def aujourdhui_func(aujourdhui):
     res = '%s год, %s месяц, %s день' % (aujourdhui[0], aujourdhui[1], aujourdhui[2])
-    print(res)
+    print('Сегодня по григорианскому календарю: \n',res)
 
 
 # 'сегодня' во фр. рев. кал.
