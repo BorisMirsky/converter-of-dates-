@@ -1,5 +1,4 @@
 # Консольная версия
-
 import datetime, calendar
 
 
@@ -8,9 +7,12 @@ dict_month = {1:'Vendemiaire', 2:'Brumaire', 3:'Frimaire',
               4:'Nivose', 5:'Pluviose', 6:'Ventose',
               7:'Germinal', 8:'Floreal', 9:'Prairial',
               10:'Messidor', 11:'Thermidor', 12:'Fructidor'}
+
 dict_decade = {1:'I', 2:'II', 3:'III'}
+
 dict_day = {1:'Primidi', 2:'Duodi', 3:'Tridi', 4:'Quartidi', 5:'Quintidi',
            6:'Sextidi', 7:'Septidi', 8:'Octidi', 9:'Nonidi', 10:'Décadi'}
+
 dict_sancs = {1:'La Fête de la Vertu', 2:'La Fête du Génie',
              3:'La Fête du Travail', 4:'La Fête de le Opinion',
              5:'La Fête des Récompenses', 6:' La Fête de la Révolution'}
@@ -55,7 +57,7 @@ class Fr_date():
       if self.get_index(self.y, self.m, self.d) >= self.eq(self.y):            # если день после ОР
          day_ind = self.get_index(self.y, self.m, self.d) - self.eq(self.y) + 1
       else:                                                                    # если день до ОР
-        day_ind = self.get_index(self.y, self.m, self.d) + self.get_index(pred_y, 12, 31) - self.eq(pred_y)
+         day_ind = self.get_index(self.y, self.m, self.d) + self.get_index(pred_y, 12, 31) - self.eq(pred_y)
       return day_ind
 
 
@@ -78,7 +80,26 @@ class Fr_date():
                 (fr_year, dict_month[fr_month], dict_decade[fr_dec], dict_day[fr_day]))
 
 
-aujourdhui = datetime.datetime.today().strftime('%Y-%m-%d').split('-')
-instance = Fr_date(int(aujourdhui[0]), int(aujourdhui[1]), int(aujourdhui[2]))
-print(aujourdhui)
+
+
+# 'сегодня' 
+aujourdhui_arg = datetime.datetime.today().strftime('%Y-%m-%d').split('-')
+
+
+# форматирование 'сегодня'
+def aujourdhui_func(aujourdhui):
+    res = '%s год, %s месяц, %s день' % (aujourdhui[0], aujourdhui[1], aujourdhui[2])
+    print(res)
+
+
+# 'сегодня' во фр. рев. кал.
+instance = Fr_date(int(aujourdhui_arg[0]), int(aujourdhui_arg[1]), int(aujourdhui_arg[2]))
+
+
+#вывод двух сегодня - обычного и фр.
+aujourdhui_func(aujourdhui_arg)
+print('')
 print(instance.fr_date())
+
+
+

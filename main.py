@@ -4,16 +4,20 @@
 Конвертер дат. Переводит текущую либо выбранную дату в формат французского
 республиканского календаря.
 
-Сделано в Linux, переносимость не проверял. Не тестировал.
+todo
 
-Скачет размер окна, надо доделать!
+1. Скачет размер окна, надо доделать!
+2. favicon
+
+
 """
 
 
 
 import sys
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
 import datetime, calendar
 
 
@@ -100,7 +104,8 @@ class Example(QWidget):
         grid.addWidget(self.FirstGroup(), 1, 0)
         grid.addWidget(self.SecondGroup(), 2, 0, 6, 1)    
         self.setLayout(grid)
-        self.setGeometry(100, 100, 400, 100)
+        self.setWindowIcon(QIcon('Coccarda_FRANCIA.png'))     
+        self.setGeometry(100, 100, 650, 100)
         self.setWindowTitle('Vive la République!')
         self.q = Fr_date(a.year, a.month, a.day)              
 
@@ -110,7 +115,7 @@ class Example(QWidget):
         today_ = QLineEdit()
         today_.setText(a.strftime("%d %B %Y")) 
         today_.setReadOnly(True)
-        btn1 = QPushButton('allez')
+        btn1 = QPushButton('allez!')
         btn1.clicked.connect(self.on_clicked_btn1)
         global today_fr                                      
         today_fr = QLabel('   ') 
@@ -136,7 +141,7 @@ class Example(QWidget):
         date_edit = QDateEdit(a)                                            
         date_edit.setDisplayFormat("yyyy-MM-dd")
         date_edit.setDateRange(QDate(1792, 9, 22), QDate(a))                 
-        btn2 = QPushButton('allez')                                         
+        btn2 = QPushButton('allez!')                                         
         btn2.clicked.connect(self.on_clicked_btn2) 
         global get_date
         get_date = QLabel('  ')                                              
