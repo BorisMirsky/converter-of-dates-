@@ -1,29 +1,33 @@
 # Консольная версия
+
+
 import datetime, calendar
 
 
-# словарь сопоставлений: французские республиканские месяцы, декады, дни и 'санкюлотиды'.
+# словарь сопоставлений: французские республиканские (революционные) месяцы, декады, дни и 'санкюлотиды'
 dict_month = {1:'Vendemiaire', 2:'Brumaire', 3:'Frimaire',
               4:'Nivose', 5:'Pluviose', 6:'Ventose',
               7:'Germinal', 8:'Floreal', 9:'Prairial',
               10:'Messidor', 11:'Thermidor', 12:'Fructidor'}
 
+# декады вместо недель
 dict_decade = {1:'I', 2:'II', 3:'III'}
 
+# свои названия дней
 dict_day = {1:'Primidi', 2:'Duodi', 3:'Tridi', 4:'Quartidi', 5:'Quintidi',
            6:'Sextidi', 7:'Septidi', 8:'Octidi', 9:'Nonidi', 10:'Décadi'}
 
+# специальные дни 'санкюлотиды'
 dict_sancs = {1:'La Fête de la Vertu', 2:'La Fête du Génie',
              3:'La Fête du Travail', 4:'La Fête de le Opinion',
              5:'La Fête des Récompenses', 6:' La Fête de la Révolution'}
 
 
 # текущая дата
-a = datetime.date.today()
+#a = datetime.date.today()
 
 
-
-# Класс  переводит дату по юлианскому календарю во фр. респ. календарь
+# Класс  переводит дату по текущему (григорианскому) календарю во французский революционный (республиканский)
 class Fr_date():
    def __init__(self, y, m, d):
       self.y = y
@@ -82,7 +86,7 @@ class Fr_date():
 
 
 
-# 'сегодня' 
+# aujourd'hui == сегодня
 aujourdhui_arg = datetime.datetime.today().strftime('%Y-%m-%d').split('-')
 
 
@@ -96,7 +100,7 @@ def aujourdhui_func(aujourdhui):
 instance = Fr_date(int(aujourdhui_arg[0]), int(aujourdhui_arg[1]), int(aujourdhui_arg[2]))
 
 
-#вывод двух сегодня - обычного и фр.
+#вывод двух 'сегодня' - обычного и французского революционного
 aujourdhui_func(aujourdhui_arg)
 print('')
 print(instance.fr_date())

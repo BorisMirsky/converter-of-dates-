@@ -1,15 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+
 """
 Конвертер дат. Переводит текущую либо выбранную дату в формат французского
 республиканского календаря.
-
-todo
-
-1. Скачет размер окна, надо доделать!
-2. favicon
-
-
 """
 
 
@@ -21,14 +15,20 @@ from PyQt5.QtCore import *
 import datetime, calendar
 
 
-# словарь сопоставлений: французские республиканские месяцы, декады, дни и 'санкюлотиды'. 
+# словарь сопоставлений: французские республиканские месяцы
 dict_month = {1:'Vendemiaire', 2:'Brumaire', 3:'Frimaire',
               4:'Nivose', 5:'Pluviose', 6:'Ventose',
               7:'Germinal', 8:'Floreal', 9:'Prairial',
-              10:'Messidor', 11:'Thermidor', 12:'Fructidor'}    
+              10:'Messidor', 11:'Thermidor', 12:'Fructidor'}
+
+# декады
 dict_decade = {1:'I', 2:'II', 3:'III'}
+
+# дни
 dict_day = {1:'Primidi', 2:'Duodi', 3:'Tridi', 4:'Quartidi', 5:'Quintidi',
            6:'Sextidi', 7:'Septidi', 8:'Octidi', 9:'Nonidi', 10:'Décadi'}
+
+# 'санкюлотиды'
 dict_sancs = {1:'La Fête de la Vertu', 2:'La Fête du Génie',
              3:'La Fête du Travail', 4:'La Fête de le Opinion',
              5:'La Fête des Récompenses', 6:' La Fête de la Révolution'}
@@ -37,7 +37,7 @@ dict_sancs = {1:'La Fête de la Vertu', 2:'La Fête du Génie',
 a = datetime.date.today()   
 
 
-# Класс  переводит дату по юлианскому календарю во фр. респ. календарь
+# Класс  переводит дату по григорианскому календарю во фр. респ-й календарь
 class Fr_date():
    def __init__(self, y, m, d):
       self.y = y                      
@@ -104,7 +104,7 @@ class Example(QWidget):
         grid.addWidget(self.FirstGroup(), 1, 0)
         grid.addWidget(self.SecondGroup(), 2, 0, 6, 1)    
         self.setLayout(grid)
-        self.setWindowIcon(QIcon('Coccarda_FRANCIA.png'))     
+        self.setWindowIcon(QIcon('Cocarde.png'))     
         self.setGeometry(100, 100, 650, 100)
         self.setWindowTitle('Vive la République!')
         self.q = Fr_date(a.year, a.month, a.day)              
