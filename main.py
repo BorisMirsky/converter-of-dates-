@@ -107,7 +107,7 @@ class Example(QWidget):
         self.setWindowIcon(QIcon('Cocarde.png'))     
         self.setGeometry(100, 100, 650, 100)
         self.setWindowTitle('Vive la République!')
-        self.q = Fr_date(a.year, a.month, a.day)              
+        self.q = Fr_date(a.year, a.month, a.day)
 
     def FirstGroup(self):
         groupBox = QGroupBox("Конвертировать текущую дату")

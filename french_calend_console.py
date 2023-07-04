@@ -23,10 +23,6 @@ dict_sancs = {1:'La Fête de la Vertu', 2:'La Fête du Génie',
              5:'La Fête des Récompenses', 6:' La Fête de la Révolution'}
 
 
-# текущая дата
-#a = datetime.date.today()
-
-
 # Класс  переводит дату по текущему (григорианскому) календарю во французский революционный (республиканский)
 class Fr_date():
    def __init__(self, y, m, d):
@@ -100,7 +96,7 @@ def aujourdhui_func(aujourdhui):
 instance = Fr_date(int(aujourdhui_arg[0]), int(aujourdhui_arg[1]), int(aujourdhui_arg[2]))
 
 
-#вывод двух 'сегодня' - обычного и французского революционного
+#вывод двух 'сегодня' - обычного и 'французского революционного'
 aujourdhui_func(aujourdhui_arg)
 print('')
 print(instance.fr_date())
